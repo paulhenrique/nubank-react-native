@@ -1,0 +1,88 @@
+<template>
+  <view class="container">
+    <view class="code">
+      <image
+        class="qrcode"
+        :source="require('../../assets/images/qrcode.png')"
+      ></image>
+    </view>
+    <view class="nav">
+        <view class="nav-item">
+            <image class="icon" :source="require('../../assets/images/baseline_help_outline_white_24dp.png')" />
+            <text class="nav-text">Me ajuda</text>
+        </view>
+        <view class="nav-item">
+            <image class="icon" :source="require('../../assets/images/outline_person_outline_white_24dp.png')" />
+            <text class="nav-text">Perfil</text>
+        </view>
+        <view class="nav-item">
+            <image class="icon" :source="require('../../assets/images/outline_credit_card_white_24dp.png')" />
+            <text class="nav-text">Configurar cartão</text>
+        </view>
+        <view class="nav-item">
+            <image class="icon" :source="require('../../assets/images/outline_smartphone_white_24dp.png')" />
+            <text class="nav-text">Configurações do app</text>
+        </view>
+        <TouchableOpacity class="signOutBtn">
+            <text class="signOutBtnText">SAIR DO APP</text>
+        </TouchableOpacity>
+    </view>
+  </view>
+</template>
+<script>
+import { TouchableOpacity } from 'react-native';
+export default {
+  name: "Menu",
+  components: {
+      TouchableOpacity
+  },
+};
+</script>
+
+<style scoped>
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+    max-height:30px;
+}
+.code{
+    align-items: center;
+}
+.qrcode{
+    width:80px;
+    height:80px;
+}
+.nav{
+    margin-top: 30px;
+    border-top-width: .3;
+    border-top-color: white;
+}
+.nav-item{
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+
+    border-bottom-width:.3;
+    border-bottom-color: white;
+
+}
+.nav-text{
+    color: white;
+    margin-left: 20px;
+}
+.signOutBtn{
+    border-width:.3;
+    border-color: white;
+    border-radius: 4px;
+    justify-content: center;
+    align-items:center ;
+    padding: 12px;
+    margin-top: 15px;
+}
+
+.signOutBtnText{
+    color:white;
+    font-weight:bold;
+    font-size: 13px;
+}
+</style>

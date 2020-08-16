@@ -15,9 +15,11 @@
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-qrcode": "^0.2.7",
     "react-native-svg": "^12.1.0",
     "react-native-vector-icons": "^7.0.0",
     "react-native-web": "~0.11.7",
+    "react-native-webview": "^10.6.0",
     "vue-material-design-icons": "^4.8.0",
     "vue-native-core": "0.1.4",
     "vue-native-helper": "0.1.4"
