@@ -1,13 +1,13 @@
 <template>
   <view class="container">
     <view class="top">
-      <image :source="require('../../assets/Nubank_Logo.png')" />
+      <image :source="require('../../assets/images/Nubank_Logo.png')" />
       <text class="title">Paulo</text>
     </view>
     <view class="down-keyboard-arrow">
       <image
         :source="
-          require('../../assets/baseline_keyboard_arrow_down_white_18dp.png')
+          require('../../assets/images/baseline_keyboard_arrow_down_white_18dp.png')
         "
       />
     </view>

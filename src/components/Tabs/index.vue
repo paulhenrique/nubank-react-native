@@ -7,40 +7,40 @@
         paddingRight: 20,
       }"
       :horizontal="true"
-      :showHorizontalScrollIndicator="true"
+      :showHorizontalScrollIndicator="false"
     >
       <view class="tabItem">
         <image
           class="icon"
-          :source="require('../../assets/baseline_person_add_white_18dp.png')"
+          :source="require('../../assets/images/baseline_person_add_white_18dp.png')"
         />
         <text class="tabText">Indicar Amigos</text>
       </view>
       <view class="tabItem">
         <image
           class="icon"
-          :source="require('../../assets/baseline_chat_bubble_outline_white_18dp.png')"
+          :source="require('../../assets/images/baseline_chat_bubble_outline_white_18dp.png')"
         />
         <text class="tabText">Cobrar</text>
       </view>
       <view class="tabItem">
         <image
           class="icon"
-          :source="require('../../assets/baseline_arrow_downward_white_18dp.png')"
+          :source="require('../../assets/images/baseline_arrow_downward_white_18dp.png')"
         />
         <text class="tabText">Depositar</text>
       </view>
       <view class="tabItem">
         <image
           class="icon"
-          :source="require('../../assets/baseline_arrow_upward_white_18dp.png')"
+          :source="require('../../assets/images/baseline_arrow_upward_white_18dp.png')"
         />
         <text class="tabText">Transferir</text>
       </view>
       <view class="tabItem">
         <image
           class="icon"
-          :source="require('../../assets/baseline_lock_white_18dp.png')"
+          :source="require('../../assets/images/baseline_lock_white_18dp.png')"
         />
         <text class="tabText">Bloquear cartão</text>
       </view>

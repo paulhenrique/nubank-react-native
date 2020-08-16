@@ -1,15 +1,17 @@
 <template>
   <Container>
     <StatusBar barSyle="light-content" backgroundColor="#8b10ae" />
-    <view>
-      <Header/>
-      <Tabs/>
+    <view class="container">
+      <Header />
+      <Card />
+      <Tabs />
     </view>
   </Container>
 </template>
 <script>
 import { StatusBar } from "react-native";
 import Header from "./components/Header";
+import Card from "./components/Card";
 import Tabs from "./components/Tabs";
 import Container from "./components/Container";
 export default {
@@ -18,7 +20,13 @@ export default {
     StatusBar,
     Container,
     Header,
-    Tabs
+    Tabs,
+    Card
   },
 };
 </script>
+<style scoped>
+.container{
+  display:flex;
+}
+</style>
