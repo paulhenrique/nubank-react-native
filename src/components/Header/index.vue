@@ -27,7 +27,6 @@ export default {
 .top {
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
 }
 .title {
   color: white;
@@ -44,6 +43,5 @@ export default {
 
 .down-keyboard-arrow {
   align-items:center;
-  margin-top: 10px;
 }
 </style>

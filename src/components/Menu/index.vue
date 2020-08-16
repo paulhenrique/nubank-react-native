@@ -41,9 +41,8 @@ export default {
 
 <style scoped>
 .container{
-    padding-left: 10px;
-    padding-right: 10px;
-    max-height:30px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .code{
     align-items: center;
@@ -69,10 +68,11 @@ export default {
 .nav-text{
     color: white;
     margin-left: 20px;
+    font-size: 15px;
 }
 .signOutBtn{
     border-width:.3;
-    border-color: white;
+    border-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
     justify-content: center;
     align-items:center ;
