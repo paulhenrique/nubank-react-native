@@ -1,0 +1,9 @@
+.container {
+    background-color: purple;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  .text-color-primary {
+    color: white;
+  }
