@@ -4,7 +4,7 @@
     <view class="container">
       <Header />
       <Menu :translateY="translateY"/>
-      <Tabs />
+      <Tabs :translateY="translateY"/>
       <PanGestureHandler
         :onGestureEvent="onGestureEventOcurred"
         :onHandlerStateChage="onHandleStateChaged"
