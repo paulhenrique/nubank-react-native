@@ -3,10 +3,19 @@
     <StatusBar barSyle="light-content" backgroundColor="#8b10ae" />
     <view class="container">
       <Header />
-      <Menu :translateY="translateY"/>
-      <Tabs :translateY="translateY"/>
+      <Menu :translateY="translateY" />
+      <Tabs :translateY="translateY" />
       <PanGestureHandler
-        :onGestureEvent="onGestureEventOcurred"
+        :onGestureEvent="Animated.event(
+        [
+          {
+            nativeEvent: {
+              translationY: translateY,
+            },
+          },
+        ],
+        { useNativeDriver: true }
+      )"
         :onHandlerStateChage="onHandleStateChaged"
       >
         <animated:view
@@ -15,9 +24,9 @@
             transform: [
               {
                 translateY: translateY.interpolate({
-                  inputRange: [-200,0, 380],
+                  inputRange: [-200, 0, 380],
                   outputRange: [-50, 0, 380],
-                  extrapolate:'clamp',
+                  extrapolate: 'clamp',
                 }),
               },
             ],
@@ -83,14 +92,13 @@ export default {
     Tabs,
     Menu,
     PanGestureHandler,
-    State,
-    Animated,
   },
   computed: {},
   data: function () {
     return {
       handleChanged: false,
       translateY: 0,
+      offset: 0,
     };
   },
   created: function () {
@@ -98,20 +106,50 @@ export default {
   },
   methods: {
     onHandleStateChaged: function (event) {
-      this.handleChanged = "batata";
+      if (event.nativeEvent.oldState === State.ACTIVE) {
+        let opeend = false;
+        var self = this;
+        const { translationY } = event.nativeEvent;
+
+        offset += translationY;
+
+        if (translationY >= 100) {
+          opened = true;
+        } else {
+          this.translateY.setOffset(offset);
+          this.translateY.setValue(0);
+          offset(0);
+        }
+
+        Animated.timing(
+          self.translateY,
+          {
+            toValue: opened ? 380 : 0,
+            duration: 200,
+            useNativeDriver: true,
+          },
+          { useNativeDriver: true }
+        ).start(() => {
+          offset = opened ? 380 : 0;
+          this.translateY.setOffset(offset);
+          this.translateY.setValue(0);
+        });
+      }
     },
-    onGestureEventOcurred: function (event) {
-      this.animatedEvent(event);
+    onGestureEventOcurred(event) {
+      // this.translateY.setValue(event.nativeEvent.translationY, {
+      //   useNativeDriver: true,
+      // });
+      // this.translateY = Animated.event([{nativeEvent:this.translationY}], { useNativeDriver: true }).nativeEvent().translationY;
     },
     animatedEvent: function (event) {
-      this.translateY.setValue(event.nativeEvent.translationY, {
-        useNativeDriver: true,
-      });
+      // this.translateY.setValue(event.nativeEvent.translationY, {
+      //   useNativeDriver: true,
+      // });
       // this.translateY = this.translateY.interpolate({
       //   inputRange:[0, 380],
       //   outputRange:[0, 380]
       // })
-
       // this.translateY = Animated.event([{ nativeEvent: { translationY: self.translateY } }], );
     },
   },
@@ -121,7 +159,6 @@ export default {
 .container {
   flex: 1;
   max-height: 330px;
-  z-index: 5;
 }
 
 .card {
@@ -134,6 +171,7 @@ export default {
   left: 0;
   right: 0;
   top: 100px;
+  z-index: 6;
 }
 
 .cardHeader {
