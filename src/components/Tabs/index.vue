@@ -7,7 +7,7 @@
         paddingRight: 20,
       }"
       :horizontal="true"
-      :showHorizontalScrollIndicator="false"
+      :showHorizontalScrollIndicator="true"
     >
       <view class="tabItem">
         <image
@@ -59,6 +59,7 @@ export default {
 <style scoped>
 .container {
   height: 100px;
+  z-index: 5;
   /* margin-top: 20px; */
 }
 .tabItem {

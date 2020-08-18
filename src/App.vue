@@ -3,12 +3,26 @@
     <StatusBar barSyle="light-content" backgroundColor="#8b10ae" />
     <view class="container">
       <Header />
-      <Menu />
+      <Menu :translateY="translateY"/>
+      <Tabs />
       <PanGestureHandler
         :onGestureEvent="onGestureEventOcurred"
-        :onHandleStateChage="onHandleStateChaged"
+        :onHandlerStateChage="onHandleStateChaged"
       >
-        <view class="card">
+        <animated:view
+          class="card"
+          :style="{
+            transform: [
+              {
+                translateY: translateY.interpolate({
+                  inputRange: [-200,0, 380],
+                  outputRange: [-50, 0, 380],
+                  extrapolate:'clamp',
+                }),
+              },
+            ],
+          }"
+        >
           <view class="cardHeader">
             <view class="cardHeaderLeftText">
               <image
@@ -17,7 +31,7 @@
                   require('./assets/images/baseline_visibility_off_black_18.png')
                 "
               />
-              <text class="cardHeaderText">Conta</text>
+              <text class="cardHeaderText">Cont</text>
             </view>
             <image
               class="icon"
@@ -27,7 +41,7 @@
             />
           </view>
           <view class="cardContent">
-            <text class="cardTitle">Saldo disponível</text>
+            <text class="cardTitle">Saldo disponível {{ handleChanged }}</text>
             <text class="cardDescription">R$ 257.354,64</text>
           </view>
           <view class="cardFooter">
@@ -47,9 +61,8 @@
               "
             />
           </view>
-        </view>
+        </animated:view>
       </PanGestureHandler>
-      <Tabs />
     </view>
   </Container>
 </template>
@@ -73,24 +86,34 @@ export default {
     State,
     Animated,
   },
-  computed:{
-    animatedEvent(){
-      return new Animated.Value(0);
-    },
-    animatedEvent(){
-      return new Animated.Value(0);
-    }
-  },
+  computed: {},
   data: function () {
     return {
       handleChanged: false,
+      translateY: 0,
     };
   },
+  created: function () {
+    this.translateY = new Animated.Value(0);
+  },
   methods: {
-    onHandleStateChaged: function () {
-      this.handleChanged = true;
+    onHandleStateChaged: function (event) {
+      this.handleChanged = "batata";
     },
-    onGestureEventOcurred: function () {},
+    onGestureEventOcurred: function (event) {
+      this.animatedEvent(event);
+    },
+    animatedEvent: function (event) {
+      this.translateY.setValue(event.nativeEvent.translationY, {
+        useNativeDriver: true,
+      });
+      // this.translateY = this.translateY.interpolate({
+      //   inputRange:[0, 380],
+      //   outputRange:[0, 380]
+      // })
+
+      // this.translateY = Animated.event([{ nativeEvent: { translationY: self.translateY } }], );
+    },
   },
 };
 </script>
