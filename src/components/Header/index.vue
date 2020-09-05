@@ -13,7 +13,7 @@
     </view>
   </view>
 </template>
-<script>
+<script> 
 export default {
   name: "Header",
   components: {},

@@ -121,19 +121,19 @@ export default {
           offset(0);
         }
 
-        Animated.timing(
-          self.translateY,
-          {
-            toValue: opened ? 380 : 0,
-            duration: 200,
-            useNativeDriver: true,
-          },
-          { useNativeDriver: true }
-        ).start(() => {
-          offset = opened ? 380 : 0;
-          this.translateY.setOffset(offset);
-          this.translateY.setValue(0);
-        });
+        // Animated.timing(
+        //   self.translateY,
+        //   {
+        //     toValue: opened ? 380 : 0,
+        //     duration: 200,
+        //     useNativeDriver: true,
+        //   },
+        //   { useNativeDriver: true }
+        // ).start(() => {
+        //   offset = opened ? 380 : 0;
+        //   this.translateY.setOffset(offset);
+        //   this.translateY.setValue(0);
+        // });
       }
     },
     onGestureEventOcurred(event) {

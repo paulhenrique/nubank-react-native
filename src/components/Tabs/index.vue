@@ -83,6 +83,7 @@ export default {
   },
   components: {
     ScrollView,
+    Animated
   },
 };
 </script>
