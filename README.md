@@ -6,3 +6,7 @@ Clone da interface do aplicativo do Nubank desenvolvido para estudos com base em
 * Expo
 * CSS
 * SCSS
+
+## Links
+* [Lattes](http://lattes.cnpq.br/1994196517067630)
+* [LinkedIn](https://br.linkedin.com/in/paulhenriquev)
